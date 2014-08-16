@@ -1,0 +1,43 @@
+
+**** Build of configuration Release for project DecodeIr_1 ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: DecodeIr_1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DecodeIr_1.map -mmcu=atmega8 -o "DecodeIr_1.elf"  ./dd_rc5.o ./main.o   
+Finished building target: DecodeIr_1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DecodeIr_1.elf  >"DecodeIr_1.lss"
+Finished building: DecodeIr_1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex DecodeIr_1.elf  "DecodeIr_1.hex"
+Finished building: DecodeIr_1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex DecodeIr_1.elf  "DecodeIr_1.eep"
+Finished building: DecodeIr_1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 DecodeIr_1.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:     646 bytes (7.9% Full)
+(.text + .data + .bootloader)
+
+Data:          7 bytes (0.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****
